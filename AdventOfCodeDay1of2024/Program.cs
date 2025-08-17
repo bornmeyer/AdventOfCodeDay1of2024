@@ -7,7 +7,7 @@ using Microsoft.Extensions.Hosting;
 var host = Host.CreateApplicationBuilder();
 host.Services
     .AddHostedService<Service>()
-    .AddTransient<DataReader>()
+    .AddTransient<DataProducer>()
     .AddTransient<Solver>();
 
 

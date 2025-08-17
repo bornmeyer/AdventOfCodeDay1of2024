@@ -7,11 +7,12 @@ using System.Transactions;
 
 namespace AdventOfCodeDay1
 {
-    public class DataReader
+    public class DataProducer : IAsyncEnumerable<(Int32, Int32)>
     {
-        public async IAsyncEnumerable<(Int32, Int32)> ReadDataAsync(FileInfo file)
+        public async IAsyncEnumerator<(int, int)> GetAsyncEnumerator(CancellationToken cancellationToken = default)
         {
-            await foreach(var current in File.ReadLinesAsync(file.FullName))
+            var file = new FileInfo("lists.txt");
+            await foreach (var current in File.ReadLinesAsync(file.FullName))
             {
                 var split = current.Split("   ") switch
                 {

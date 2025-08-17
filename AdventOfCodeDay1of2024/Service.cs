@@ -15,7 +15,9 @@ namespace AdventOfCodeDay1
 
         public async Task StartedAsync(CancellationToken cancellationToken)
         {
-            var result = await solver.SolveAsync();
+            var result = await solver.SolveDayOneAsync();
+            Console.WriteLine(result);
+            result = await solver.SolveDayTwoAsync();
             Console.WriteLine(result);
         }
 
